@@ -5,8 +5,14 @@ const getAllTasks = (req, res)=>{
 }
 
 const createTask = async (req, res)=>{
-    const task = await Task.create(req.body);
-    res.status(201).json({ task });
+    try{
+        const task = await Task.create(req.body);
+        res.status(201).json({ task });
+    }catch(e){
+        res.status(500).json({
+            message: e,
+        })
+    } 
 }
 
 const getSingleTask = (req, res)=>{
