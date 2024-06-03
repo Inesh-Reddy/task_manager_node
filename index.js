@@ -6,6 +6,7 @@ const connectDB = require('./db/connection');
 require('dotenv').config()
 
 
+// app.use(express.json());
 app.use(express.json());
 
 
